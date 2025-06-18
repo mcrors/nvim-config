@@ -1,18 +1,6 @@
 local util = require 'lspconfig/util'
 
 return {
-  cmd = {
-        'java',
-        '-javaagent:/Users/rhoulihan/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar', -- Add this
-        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        '-Dlog.level=ALL',
-        '-Xmx1G',
-        '-jar', '/Users/rhoulihan/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',
-        '-configuration', '/Users/rhoulihan/.local/share/nvim/mason/packages/jdtls/config_mac_arm',
-        '-data', vim.fn.stdpath("cache") .. "/jdtls-workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-  },
   filetypes = {'java'},
   root_dir = function(fname)
     return util.root_pattern('pom.xml', 'build.gradle', '.git')(fname) or vim.fn.getcwd()
@@ -41,3 +29,5 @@ return {
     bundles = {}
   }
 }
+
+
