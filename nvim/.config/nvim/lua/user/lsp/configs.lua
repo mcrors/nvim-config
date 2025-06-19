@@ -1,26 +1,22 @@
-local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
-if not status_ok then
-	return
-end
+local servers = {"lua_ls", "pyright", "gopls", "jdtls", "jsonls"}
 
-local lspconfig = require("lspconfig")
-
-local servers = { "jsonls", "pyright", "ts_ls", "gopls", "lua_ls", "jdtls"}
-
-lsp_installer.setup({
-	ensure_installed = servers,
-})
+local capabilities = require("user.lsp.handlers").capabilities
+local on_attach = require("user.lsp.handlers").on_attach
 
 for _, server in pairs(servers) do
-	local opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
-	}
-	local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
-	if has_custom_opts then
-		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
-	end
-	lspconfig[server].setup(opts)
+    local dir = "user.lsp.settings." .. server
+    local ok, settings = pcall(require, dir)
+    if not ok then
+        settings = {}
+    end
+    vim.lsp.config(server, {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = settings,
+    })
 end
 
-
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+})

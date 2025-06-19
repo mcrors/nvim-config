@@ -1,6 +1,6 @@
-vim.g.colors_name = "gruvbox"
+vim.g.colors_name = "habamax"
 -- why did this change ffs
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme habamax')
 
 vim.opt.background = "dark"
 vim.opt.termguicolors = true

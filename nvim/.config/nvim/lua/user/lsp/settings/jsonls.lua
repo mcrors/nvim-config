@@ -38,21 +38,8 @@ end
 
 local extended_schemas = extend(schemas, default_schemas)
 
-local opts = {
-  settings = {
+return {
     json = {
-      schemas = extended_schemas,
-    },
-  },
-  setup = {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
-        end,
-      },
-    },
-  },
+        schemas = extended_schemas
+    }
 }
-
-return opts
