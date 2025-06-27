@@ -54,6 +54,19 @@ Delta_git_bcommits = function(opts)
     end
 end
 
+local delta_status = previewers.new_termopen_previewer({
+	get_command = function(entry)
+		return {
+			"git",
+			"-c",
+			"core.pager=delta",
+			"-c",
+			"delta.side-by-side=true",
+			"diff",
+			entry.value
+		}
+	end,
+})
 
 local default_opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>lua Delta_git_commits()<CR>", default_opts)
@@ -148,9 +161,10 @@ telescope.setup {
                 "middleware/target",
                 "%.class"
             },
-            --additional_args = function(opts)
-                --return {"hidden=true"}
-            --end
+            layout_config = {
+                width = 0.5,
+                height = 0.5,
+            },
         },
         git_files = {
             theme = "dropdown",
@@ -159,6 +173,10 @@ telescope.setup {
         buffers = {
             theme = "dropdown",
             previewer = false,
+            layout_config = {
+                width = 0.4,
+                height = 0.4,
+            },
         },
         live_grep = {
             layout_config = {
@@ -176,6 +194,7 @@ telescope.setup {
                 preview_width = 0.75,
             },
             sorting_strategy = "ascending",
+            previewer = delta_status,
         },
     },
     extensions = { },

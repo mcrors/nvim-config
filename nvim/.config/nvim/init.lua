@@ -39,3 +39,4 @@ require "user.vennvim"
 
 require "user.comment"
 require "user.null"
+require "user.augment"
