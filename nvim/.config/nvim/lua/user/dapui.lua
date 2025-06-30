@@ -1,37 +1,31 @@
 local config =
-  {
+{
     controls = {
         element = "repl",
         enabled = true
     },
-    layouts = { {
-        elements = { {
-            id = "scopes",
-            size = 0.4
-          },
-          {
-            id = "watches",
-            size = 0.4
-          },
-          {
-            id = "breakpoints",
-            size = 0.2
-          }
-        } ,
-        position = "left",
-        size = 40
-      }, {
-        elements = { {
-            id = "stacks",
-            size = 0.5
-          }, {
-            id = "repl",
-            size = 0.5
-          } },
-        position = "bottom",
-        size = 15
-      } }
-  }
+    layouts = {
+        {
+            position = "left", size = 60,
+            elements = {
+                { id = "watches", size = 0.4 },
+                { id = "breakpoints", size = 0.4 },
+            },
+        },
+        {
+            position = "bottom", size = 15,
+            elements = {
+                { id = "scopes", size = 1.0 },
+            },
+        },
+        {
+            position = "right", size = 60,
+            elements = {
+                { id = "repl", size = 0.8},
+            }
+        }
+    }
+}
 
 
 require('dapui').setup(config)

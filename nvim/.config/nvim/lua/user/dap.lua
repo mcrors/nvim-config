@@ -1,6 +1,6 @@
 local dap = require('dap')
 dap.defaults.fallback.external_terminal = {
-    command = '/usr/bin/kitty';
+    command = 'alacritty';
 }
 dap.defaults.fallback.force_external_terminal = true
 
