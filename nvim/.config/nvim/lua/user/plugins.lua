@@ -165,14 +165,6 @@ return packer.startup(function(use)
     -- helm template syntax highlighting
     use "towolf/vim-helm"
 
-    -- rsync
-    use {'kenn7/vim-arsync',
-        requires = {
-            {'prabirshrestha/async.vim'}
-        }
-    }
-
-
     -- null-ls.nvim and dependencies
     use { "nvimtools/none-ls.nvim",
         requires = {
