@@ -14,7 +14,6 @@ M.setup = function()
         virtual_text = false,
         -- show signs
         signs = {
-            active = signs,
             text = sign_text,
         },
         update_in_insert = true,
@@ -67,7 +66,6 @@ local function lsp_keymaps(bufnr)
     buf_set_keymap("n", "[g", '<cmd>lua vim.diagnostic.jump({ count = -1, border = "rounded" })<CR>', opts)
     buf_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
     buf_set_keymap("n", "]g", '<cmd>lua vim.diagnostic.jump({ count = 1, border = "rounded" })<CR>', opts)
-    buf_set_keymap('n', 'sd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     buf_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.disable()<CR>', opts)
     buf_set_keymap('n', '<leader>ed', '<cmd>lua vim.diagnostic.enable()<CR>', opts)
@@ -78,7 +76,7 @@ M.on_attach = function(client, bufnr)
     -- vim.notify(client.name .. " starting...")
     -- TODO: refactor this into a method that checks if string in list
     if client.name == "tsserver" then
-        client.server_capabilities.document_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
     end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)

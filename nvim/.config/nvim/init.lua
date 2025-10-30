@@ -12,6 +12,9 @@ if vim.loop.os_uname().sysname == "Darwin" then
       .. ";/opt/homebrew/lib/lua/5.1/?.so"
       .. ";/opt/homebrew/lib/lua/5.1/loadall.so"
       .. ";/Users/rhoulihan/.luarocks/lib/lua/5.1/?.so"
+
+ -- Make jdtls load Lombok (Homebrew path shown)
+  vim.env.JDTLS_JVM_ARGS = (vim.env.JDTLS_JVM_ARGS or "") .. " -javaagent:/Users/rhoulihan/lombok.jar"
 end
 
 require "user.plugins"
