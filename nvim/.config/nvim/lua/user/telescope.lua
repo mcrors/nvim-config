@@ -183,6 +183,7 @@ telescope.setup {
                 prompt_position = "top",
                 preview_width = 0.6,
             },
+            path_display = { "smart" },
             sorting_strategy = "ascending",
             additional_args = function(opts)
                 return { "--hidden" }
