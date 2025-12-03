@@ -180,7 +180,6 @@ return packer.startup(function(use)
         end
     }
 
-    use "augmentcode/augment.vim"
     use "mfussenegger/nvim-jdtls"
 
     -- Automatically set up our configuration after cloning packer.nvim
