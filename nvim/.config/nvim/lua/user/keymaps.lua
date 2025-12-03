@@ -89,7 +89,6 @@ keymap("n", "<F10>", "<cmd>lua require('dap').step_over()<CR>", opts)
 keymap("n", "<F11>", "<cmd>lua require('dap').step_into()<CR>", opts)
 keymap("n", "<F12>", "<cmd>lua require('dap').step_out()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require('dap').terminate()<CR>", opts)
 keymap("n", "<leader>dd", "<cmd>lua require('dap').disconnect()<CR>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
@@ -106,6 +105,10 @@ keymap("n", "<leader>co", ":set conceallevel=0<CR>", opts)
 
 -- set conceal level to 3
 keymap("n", "<leader>ct", ":set conceallevel=3<CR>", opts)
+
+
+keymap("n", "<leader>dc", "<cmd>lua vim.g.augment_disable_completion = true<CR>", opts + {desc = "Disable completion"})
+keymap("n", "<leader>ec", "<cmd>lua vim.g.augment_disable_completion = false<CR>", opts + {desc = "Enable completion"})
 
 ------------
 -- Insert --
