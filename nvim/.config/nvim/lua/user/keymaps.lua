@@ -107,8 +107,8 @@ keymap("n", "<leader>co", ":set conceallevel=0<CR>", opts)
 keymap("n", "<leader>ct", ":set conceallevel=3<CR>", opts)
 
 
-keymap("n", "<leader>dc", "<cmd>lua vim.g.augment_disable_completion = true<CR>", opts + {desc = "Disable completion"})
-keymap("n", "<leader>ec", "<cmd>lua vim.g.augment_disable_completion = false<CR>", opts + {desc = "Enable completion"})
+keymap("n", "<leader>dc", "<cmd>lua vim.g.augment_disable_completion = true<CR>", opts)
+keymap("n", "<leader>ec", "<cmd>lua vim.g.augment_disable_completion = false<CR>", opts)
 
 ------------
 -- Insert --

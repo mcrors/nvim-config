@@ -158,8 +158,9 @@ telescope.setup {
                 "node_modules",
                 "%.pyc",
                 "/.git",
-                "middleware/target",
-                "%.class"
+                "target",
+                "%.class",
+                ".settings"
             },
             layout_config = {
                 width = 0.5,
