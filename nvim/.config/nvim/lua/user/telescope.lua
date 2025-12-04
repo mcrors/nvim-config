@@ -62,8 +62,7 @@ local delta_status = previewers.new_termopen_previewer({
 			"core.pager=delta",
 			"-c",
 			"delta.side-by-side=true",
-			"diff",
-			entry.value
+			"diff"
 		}
 	end,
 })
@@ -164,8 +163,8 @@ telescope.setup {
                 ".idea"
             },
             layout_config = {
-                width = 0.5,
-                height = 0.5,
+                width = 0.9,
+                height = 0.6,
             },
         },
         git_files = {
