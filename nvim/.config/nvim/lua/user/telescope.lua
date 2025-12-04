@@ -160,7 +160,8 @@ telescope.setup {
                 "/.git",
                 "target",
                 "%.class",
-                ".settings"
+                ".settings",
+                ".idea"
             },
             layout_config = {
                 width = 0.5,
