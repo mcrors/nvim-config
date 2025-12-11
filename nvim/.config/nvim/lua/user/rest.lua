@@ -5,7 +5,16 @@ vim.bo.formatexpr = ""
 vim.bo.formatprg = "jq"
 
 vim.g.rest_nvim = {
-    custom_dynamic_variables = {},
+    custom_dynamic_variables = {
+        START_TIME = function()
+            local now_ms = math.floor(os.time() * 1000)
+            return tostring(now_ms - 3600000)    -- now - 1 hour in ms
+        end,
+        END_TIME = function()
+            local now_ms = math.floor(os.time() * 1000)
+            return tostring(now_ms)              -- now in ms
+        end,
+    },
     request = {
         skip_ssl_verification = true, -- this is the only change from the default
         hooks = {
