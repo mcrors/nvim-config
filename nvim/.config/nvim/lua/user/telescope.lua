@@ -151,6 +151,8 @@ telescope.setup {
         find_files = {
             find_command = {"rg", "--files", "--hidden", "--glob", "!**/.git/*"},
             theme = "dropdown",
+
+            path_display = { "smart" },
             previewer = false,
             file_ignore_patterns = {
                 "__pycache__",
@@ -173,9 +175,10 @@ telescope.setup {
         },
         buffers = {
             theme = "dropdown",
+            path_display = { "smart" },
             previewer = false,
             layout_config = {
-                width = 0.4,
+                width = 0.6,
                 height = 0.4,
             },
         },
